@@ -1,0 +1,363 @@
+@font-face {
+    font-family: "Inter";
+    src: url(fonts/Inter-VariableFont_opsz\,wght.ttf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    /* Primary */
+    --lime-green: hsl(163, 72%, 41%);
+    --bright-red: hsl(356, 69%, 56%);
+
+    --facebook: hsl(208, 92%, 53%);
+    --twitter: hsl(203, 89%, 53%);
+    --instagram: hsl(37, 97%, 70%) to hsl(329, 70%, 58%);
+    --youTube: hsl(348, 97%, 39%);
+
+
+    /* Light Theme */
+    --white-bg: hsl(0, 0%, 100%);
+    --very-pale-blue-top-bg-Pattern: hsl(225, 100%, 98%);
+    --light-grayish-blue-card-bg: hsl(227, 47%, 96%);
+    --dark-grayish-blue-text: hsl(228, 12%, 44%);
+    --very-dark-blue-text: hsl(230, 17%, 14%);
+
+
+    /* Dark Theme */
+
+    --very-dark-blue-BG: hsl(230, 17%, 14%);
+    --very-dark-blue-Top-BG-Pattern: hsl(232, 19%, 15%);
+    --dark-desaturated-blue-Card-BG: hsl(228, 28%, 20%);
+    --desaturated-Blue-Text: hsl(228, 34%, 66%);
+    --white-Text: hsl(0, 0%, 100%);
+}
+
+
+
+body{
+    font-family: "Inter";
+    background: var(--white-bg);
+    color: var(--very-dark-blue-text);
+    transition: 0.4s;
+}
+
+
+.body.dark-mode{
+    background: var(--very-dark-blue-BG);
+    color: var(--white-Text);
+    transition: 0.4s;
+}
+
+
+
+.body.dark-mode .card{
+    background: var(--dark-desaturated-blue-Card-BG);
+    transition: 0.4s;
+}
+
+.body.dark-mode .overview-card{
+    background: var(--dark-desaturated-blue-Card-BG);
+    transition: 0.4s;
+}
+
+.body.dark-mode .switch-btn::before{
+    background: var(--dark-desaturated-blue-Card-BG);
+}
+
+.body.dark-mode .switch-btn{
+    background-image: linear-gradient(to right, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+}
+
+.body.dark-mode .card:active{
+    background: var(--desaturated-Blue-Text);
+}
+
+.body.dark-mode .overview-card:active{
+    background: var(--desaturated-Blue-Text);
+}
+
+ .content{
+    padding: 2rem 4rem;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+}
+
+
+.switch-btn{
+    background: var(--dark-grayish-blue-text);
+    height: 25px;
+    width: 60px;
+    border-radius: 20px;
+    border: none;
+    z-index: 0;
+    position: relative;
+    cursor: pointer;
+
+}
+
+.switch-btn::before{
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: var(--white-bg);
+    border-radius: 50%;
+    left: 3px;
+    top: 2px;
+    transition: 0.3s;
+    /* transition: switchSlide ease; */
+}
+
+.switch-btn.active-state::before{
+    left: calc(100% - 24px);
+}
+
+.switch-btn.active-state::before{
+    animation: toggle-right 0.3s ease;
+}
+
+
+
+
+@keyframes toggle-right{
+    0% {
+        left: 4px;
+        top: 2px;
+    }
+    100% {
+        left: calc(100% - 24px);
+        top: 2px;
+    }
+}
+.right-header{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.socials-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    place-items: center;
+    gap: 0.5rem;
+
+}
+
+
+.card::before{
+    content: "";
+    width: 100%;
+    height: 5px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border: none;
+}
+
+.facebook::before{
+    background: var(--facebook);
+}
+
+.twitter::before{
+    background: var(--twitter);
+}
+
+.instagram::before{
+background-image: linear-gradient(to right, hsl(37, 97%, 70%), hsl(329, 70%, 58%));
+}
+.youtube::before{
+    background: var(--youTube);
+}
+
+.card{
+    background: var(--light-grayish-blue-card-bg);
+    position: relative;
+    border-radius: 10px;
+    max-width: 300px;
+    min-width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.card:active{
+    background: var(--very-pale-blue-top-bg-Pattern);
+    transition: 0.5s;
+}
+
+.social-link{
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+}
+
+.social-link img{
+    margin-right: 5px;
+}
+.followers-numb{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 0 20px 0;
+}
+
+.followers-numb h1{
+    font-size: 3rem;
+}
+
+.followers-txt{
+    text-transform: uppercase;
+    /* word-spacing: 0px; */
+    letter-spacing: 4px;
+}
+
+.date{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: var(--lime-green);
+    gap: 5px;
+    font-weight: 600;
+}
+
+
+.overview-container{
+    margin-top: 4rem;
+
+}
+
+
+.overview-card-cont{
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2rem;
+}
+
+
+.overview-card{
+    background: var(--light-grayish-blue-card-bg);
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.overview-card:active{
+    background: var(--very-pale-blue-top-bg-Pattern);
+    transition: 0.5s;
+}
+
+.activities{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.activities p{
+    font-weight: 600;
+    color: var(--dark-grayish-blue-text);
+}
+
+.activity-numb{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.percentage{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--lime-green);
+    font-weight: 600;
+}
+
+.reduced{
+    color: var(--bright-red);
+}
+
+
+
+
+
+
+
+
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+
+
+@media (max-width: 1150px){
+    .socials-container{
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 880px){
+    .socials-container{
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+    .followers-numb h1{
+        font-size: 2.5rem;
+    }
+    .followers-txt{
+        letter-spacing: 3px;
+    }
+    .activity-numb h1{
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 867px){
+    .overview-card-cont{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 656px){
+    #mode-state, #total-followers{
+        font-size: 0.7rem;
+    }
+    .left-header h2{
+        font-size: 1rem;
+    }
+    .socials-container{
+        grid-template-columns: 1fr;
+    }
+    .followers-numb h1{
+        font-size: 1.5rem;
+    }
+
+    .overview-heading{
+        font-size: 1rem;
+    }
+
+    .followers-txt{
+        letter-spacing: 1.5px;
+    }
+
+    .overview-card-cont{
+        grid-template-columns: 1fr;
+    }
+}
