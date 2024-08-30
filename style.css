@@ -312,6 +312,7 @@ background-image: linear-gradient(to right, hsl(37, 97%, 70%), hsl(329, 70%, 58%
     }
 }
 
+
 @media (max-width: 880px){
     .socials-container{
         grid-template-columns: 1fr 1fr;
@@ -361,3 +362,5 @@ background-image: linear-gradient(to right, hsl(37, 97%, 70%), hsl(329, 70%, 58%
         grid-template-columns: 1fr;
     }
 }
+
+
